@@ -11,7 +11,7 @@ export default function TaskDetail() {
     useEffect(() => {
         async function fetchTask() {
             if (!taskId) return;
-            const data = await getTaskById(taskId);
+            const data: any = await getTaskById(taskId);
             setTask(data);
         }
 
