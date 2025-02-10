@@ -6,12 +6,14 @@ import { useParams } from "next/navigation";
 export default function TaskDetail() {
     const { id } = useParams();
     const taskId = String(id);
+    // eslint-disable-next-line 
+    // @typescript-eslint/no-explicit-any
     const [task, setTask] = useState<any>(null);
 
     useEffect(() => {
         async function fetchTask() {
             if (!taskId) return;
-            const data: any = await getTaskById(taskId);
+            const data = await getTaskById(taskId);
             setTask(data);
         }
 
