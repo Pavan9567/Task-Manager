@@ -6,8 +6,7 @@ export async function getTasks() {
     try {
         await connectDB();
         const tasks = await Task.find().lean();
-
-        return tasks.map((task: any) => ({
+        return tasks.map((task) => ({
             ...task, _id: task._id.toString(),
         }));
     }catch (error) {
